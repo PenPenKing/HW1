@@ -1,0 +1,15 @@
+{
+  "backend": "nvrtc-runtime",
+  "device": "NVIDIA GeForce RTX 4090 D",
+  "impl": "naive",
+  "images": 10000,
+  "batch": 2000,
+  "accuracy_percent": 99.0400,
+  "pass_best_ms": 7.4609,
+  "pass_mean_ms": 10.1986,
+  "ms_per_image": 0.000746,
+  "images_per_second": 1340327.3,
+  "layers_ms": {"conv1": 1.0330, "relu1": 0.1629, "pool1": 0.1123, "conv2": 1.0873, "relu2": 0.1096, "pool2": 0.0666, "dense": 0.1367, "argmax": 0.0191},
+  "iters": 20,
+  "warmup": 5
+}

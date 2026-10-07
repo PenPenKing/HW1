@@ -1,0 +1,17 @@
+# build artefacts
+build/
+*.exe
+*.o
+*.obj
+*.lib
+
+# MNIST data (regenerate with: python mnist_loader.py --out data)
+data/
+
+# scratch
+results/dbg.txt
+results/tmp_*.json
+
+# python
+__pycache__/
+*.pyc

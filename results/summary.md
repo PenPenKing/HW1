@@ -1,0 +1,16 @@
+# TinyLeNet on RTX 4090 D - full 10000-image MNIST test set
+
+batch = 2000, warm-up 5 passes, best of 20 timed passes.
+resident = inputs already in device memory (pure kernel time);
+streamed = host->device copy of every batch included.
+
+| impl | mode | accuracy | pass (ms) | per image (ms) | images/s | conv1 (ms) | conv2 (ms) | dense (ms) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| naive | resident | 99.04% | 2.292 | 0.00023 | 4362271 | 0.713 | 1.086 | 0.140 |
+| shared | resident | 99.04% | 1.906 | 0.00019 | 5246546 | 0.333 | 1.070 | 0.136 |
+| row | resident | 99.04% | 2.106 | 0.00021 | 4747508 | 1.104 | 0.488 | 0.137 |
+| best | resident | 99.04% | 1.318 | 0.00013 | 7587898 | 0.333 | 0.491 | 0.136 |
+| naive | streamed | 99.04% | 7.461 | 0.00075 | 1340327 | 1.033 | 1.087 | 0.137 |
+| shared | streamed | 99.04% | 7.251 | 0.00072 | 1379131 | 1.622 | 1.068 | 0.137 |
+| row | streamed | 99.04% | 7.793 | 0.00078 | 1283225 | 1.440 | 0.490 | 0.138 |
+| best | streamed | 99.04% | 6.469 | 0.00065 | 1545782 | 0.805 | 0.489 | 0.137 |
